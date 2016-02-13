@@ -1,0 +1,22 @@
+CC = cc
+CFLAGS = -o -g
+SRC = driver.c sreplace.c strmatch.c
+OBJ = driver.o sreplace.o strmatch.o
+
+driver:		$(OBJ)
+		$(CC) $(OBJ) -o driver
+
+driver.o:	driver.c
+		$(CC) -c driver.c
+
+sreplace.o:	sreplace.c
+		$(CC) -c sreplace.c
+
+strmatch.o:	strmatch.c
+		$(CC) -c strmatch.c
+
+install:	driver
+		cp driver ~/bin
+
+clean:
+		rm -f driver *.o core
